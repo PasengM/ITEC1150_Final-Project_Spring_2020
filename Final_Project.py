@@ -1,0 +1,51 @@
+# FINAL PROJECT
+
+"""Program 1: The Taco Image (15 points for code, 10 points for comments)
+Search Unsplash for a taco image (for example https://unsplash.com/photos/JiRSy0GfqPA) and save the image on your computer.
+
+The downloaded image is very large. Use pillow to resize the image to a smaller size, perhaps no more than 800px wide or tall (make sure you preserve the aspect ratio).
+Write the text "Random Taco Cookbook" on the image.
+Save the modified image to a new file. """
+
+# CODE PROGRAM 1
+from PIL import Image, ImageDraw, ImageFont
+
+image = Image.open('Taco_spencer_davis_unsplash_Original.jpg')
+
+width = image.width  # Width
+height = image.height  # Height
+
+width_sized = int(width / 3)
+height_sized = int(height / 3.75)
+
+sized_image = image.resize((width_sized, height_sized))
+
+image_draw = ImageDraw.Draw(sized_image)
+font = ImageFont.truetype('DejaVuSans.ttf', 50)
+image_draw.text([100, 700], 'Random Taco Cookbook', fill='Black', font=font)
+
+sized_image.save('Image_Tacos_last_modified.jpg')
+
+"""Program 2: Make the Random Taco Recipe Book (40 points for code, 35 points for comments) Use requests to download 
+three random tacos from the random taco API. Save the data for each of three tacos in your program. Notice that each 
+recipe is divided into five sections for base_layer, seasoning, mixin, condiment, and shell. Use Python to create a 
+Word document. On the first page, insert the header text "Random Taco Cookbook" On the first page, add the resized 
+taco image that you created with part 1. (hint: adding images to Word documents is covered in the textbook) On the 
+first page, write the name of the image author On the first page, write the text of the random taco API URL On the 
+first page, write your own name. On the second page, start writing the first taco recipe. Write all five components 
+of the recipe. Use a larger font or heading for the heading for each of the sections. Please see example document for 
+suggested style. After the first recipe, add a page break. To add another page, hint: google "python-docx add page 
+break" Repeat to write all of the next recipe and a page break. Repeat to write all the third recipe. Save your word 
+document. """
+
+# CODE PROGRAM 2
+import requests
+
+recipe1 = requests.get('https://taco-1150.herokuapp.com/random/?full_taco=true').json()
+recipe2 = requests.get('https://taco-1150.herokuapp.com/random/?full_taco=true').json()
+recipe3 = requests.get('https://taco-1150.herokuapp.com/random/?full_taco=true').json()
+
+# for i in recipe1:
+#   print(i, recipe1[i])
+
+print(recipe1['mixin']['name'])
