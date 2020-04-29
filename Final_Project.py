@@ -7,9 +7,12 @@ The downloaded image is very large. Use pillow to resize the image to a smaller 
 Write the text "Random Taco Cookbook" on the image.
 Save the modified image to a new file. """
 
-# CODE PROGRAM 1
+# Imported libraries
 from PIL import Image, ImageDraw, ImageFont
+import requests
+import docx
 
+# CODE PROGRAM 1
 image = Image.open('Taco_spencer_davis_unsplash_Original.jpg')
 
 width = image.width  # Width
@@ -22,7 +25,7 @@ sized_image = image.resize((width_sized, height_sized))
 
 image_draw = ImageDraw.Draw(sized_image)
 font = ImageFont.truetype('DejaVuSans.ttf', 50)
-image_draw.text([100, 700], 'Random Taco Cookbook', fill='Black', font=font)
+image_draw.text([100, 700], 'Random Taco Cookbook', fill='Fuchsia', font=font)
 
 sized_image.save('Image_Tacos_last_modified.jpg')
 
@@ -39,13 +42,34 @@ break" Repeat to write all of the next recipe and a page break. Repeat to write 
 document. """
 
 # CODE PROGRAM 2
-import requests
 
 recipe1 = requests.get('https://taco-1150.herokuapp.com/random/?full_taco=true').json()
 recipe2 = requests.get('https://taco-1150.herokuapp.com/random/?full_taco=true').json()
 recipe3 = requests.get('https://taco-1150.herokuapp.com/random/?full_taco=true').json()
 
-# for i in recipe1:
-#   print(i, recipe1[i])
+recipes_book = docx.Document()
+recipes_book.add_paragraph('Random Taco Cookbook', 'Title')
+recipes_book.add_picture('Image_Tacos_last_modified.jpg', width=docx.shared.Inches(6),
+                         height=docx.shared.Inches(6))
+recipes_book.add_paragraph('Credits', 'Heading 1')
+recipes_book.add_paragraph('Taco image: Photo by Spencer Davis on Unsplash', style='List Bullet')
+recipes_book.add_paragraph('Tacos from: http://taco-randomizer.herokuapp.com/random/?full_taco=true', style='List '
+                                                                                                            'Bullet')
+recipes_book.add_paragraph('Code by: Paseng Moua', style='List Bullet')
 
-print(recipe1['mixin']['name'])
+recipes_book.add_page_break()
+
+recipes_book.add_paragraph(f"{recipe1['mixin'].values()})")
+recipes_book.save('Random Recipes Book.docx')
+
+
+
+"""
+CODE TEST
+for i in recipe1['mixin'][data]:
+    recipes_book.add_paragraph(f'{data}', 'Heading 1')
+recipes_book.save('Random Recipes Book.docx')
+# for i in recipe1:
+#   print(i, recipe1[i])"""
+
+
