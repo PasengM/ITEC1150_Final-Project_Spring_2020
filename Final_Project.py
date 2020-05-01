@@ -58,12 +58,46 @@ recipes_book.add_paragraph('Tacos from: http://taco-randomizer.herokuapp.com/ran
 recipes_book.add_paragraph('Code by: Paseng Moua', style='List Bullet')
 
 recipes_book.add_page_break()
+recipes_book.add_paragraph(f'{recipe1["base_layer"]["name"]} with {recipe1["seasoning"]["name"]}, {recipe1["condiment"]["name"]} and {recipe1["mixin"]["name"]} in {recipe1["shell"]["name"]}', 'Title')
+recipes_book.add_paragraph(f'{recipe1["base_layer"]["name"]}', 'Heading 1')
+recipes_book.add_paragraph(f'{recipe1["base_layer"]["recipe"]}')
+recipes_book.add_paragraph(f'Seasoning: {recipe1["seasoning"]["name"]}', 'Heading 1')
+recipes_book.add_paragraph(f'{recipe1["seasoning"]["recipe"]}')
+recipes_book.add_paragraph(f'Condiment: {recipe1["condiment"]["name"]}', 'Heading 1')
+recipes_book.add_paragraph(f'{recipe1["condiment"]["recipe"]}')
+recipes_book.add_paragraph(f'Mixin: {recipe1["mixin"]["name"]}', 'Heading 1')
+recipes_book.add_paragraph(f'{recipe1["mixin"]["recipe"]}')
+recipes_book.add_paragraph(f'Wrap: {recipe1["shell"]["name"]}', 'Heading 1')
+recipes_book.add_paragraph(f'{recipe1["shell"]["recipe"]}')
 
-recipes_book.add_paragraph(f"{recipe1['mixin'].values()})")
+recipes_book.add_page_break()
+recipes_book.add_paragraph(f'{recipe2["base_layer"]["name"]} with {recipe2["seasoning"]["name"]}, {recipe2["condiment"]["name"]} and {recipe2["mixin"]["name"]} in {recipe2["shell"]["name"]}', 'Title')
+recipes_book.add_paragraph(f'{recipe2["base_layer"]["name"]}', 'Heading 1')
+recipes_book.add_paragraph(f'{recipe2["base_layer"]["recipe"]}')
+recipes_book.add_paragraph(f'Seasoning: {recipe1["seasoning"]["name"]}', 'Heading 1')
+recipes_book.add_paragraph(f'{recipe2["seasoning"]["recipe"]}')
+recipes_book.add_paragraph(f'Condiment: {recipe2["condiment"]["name"]}', 'Heading 1')
+recipes_book.add_paragraph(f'{recipe1["condiment"]["recipe"]}')
+recipes_book.add_paragraph(f'Mixin: {recipe2["mixin"]["name"]}', 'Heading 1')
+recipes_book.add_paragraph(f'{recipe1["mixin"]["recipe"]}')
+recipes_book.add_paragraph(f'Wrap: {recipe2["shell"]["name"]}', 'Heading 1')
+recipes_book.add_paragraph(f'{recipe2["shell"]["recipe"]}')
+
+recipes_book.add_page_break()
+recipes_book.add_paragraph(f'{recipe3["base_layer"]["name"]} with {recipe3["seasoning"]["name"]}, {recipe3["condiment"]["name"]} and {recipe3["mixin"]["name"]} in {recipe3["shell"]["name"]}', 'Title')
+recipes_book.add_paragraph(f'{recipe3["base_layer"]["name"]}', 'Heading 1')
+recipes_book.add_paragraph(f'{recipe3["base_layer"]["recipe"]}')
+recipes_book.add_paragraph(f'Seasoning: {recipe3["seasoning"]["name"]}', 'Heading 1')
+recipes_book.add_paragraph(f'{recipe3["seasoning"]["recipe"]}')
+recipes_book.add_paragraph(f'Condiment: {recipe3["condiment"]["name"]}', 'Heading 1')
+recipes_book.add_paragraph(f'{recipe3["condiment"]["recipe"]}')
+recipes_book.add_paragraph(f'Mixin: {recipe3["mixin"]["name"]}', 'Heading 1')
+recipes_book.add_paragraph(f'{recipe3["mixin"]["recipe"]}')
+recipes_book.add_paragraph(f'Wrap: {recipe3["shell"]["name"]}', 'Heading 1')
+recipes_book.add_paragraph(f'{recipe3["shell"]["recipe"]}')
 recipes_book.save('Random Recipes Book.docx')
 
-
-
+#print(f'{recipe1["seasoning"]["recipe"]}')
 """
 CODE TEST
 for i in recipe1['mixin'][data]:
