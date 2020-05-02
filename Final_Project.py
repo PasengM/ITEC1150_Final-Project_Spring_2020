@@ -1,11 +1,11 @@
 # FINAL PROJECT
 
-"""Program 1: The Taco Image (15 points for code, 10 points for comments)
-Search Unsplash for a taco image (for example https://unsplash.com/photos/JiRSy0GfqPA) and save the image on your computer.
+"""Program 1: The Taco Image (15 points for code, 10 points for comments) Search Unsplash for a taco image (for
+example https://unsplash.com/photos/JiRSy0GfqPA) and save the image on your computer.
 
-The downloaded image is very large. Use pillow to resize the image to a smaller size, perhaps no more than 800px wide or tall (make sure you preserve the aspect ratio).
-Write the text "Random Taco Cookbook" on the image.
-Save the modified image to a new file. """
+The downloaded image is very large. Use pillow to resize the image to a smaller size, perhaps no more than 800px wide
+or tall (make sure you preserve the aspect ratio). Write the text "Random Taco Cookbook" on the image. Save the
+modified image to a new file. """
 
 # Imported libraries
 from PIL import Image, ImageDraw, ImageFont  # From the Pillow library import Image (add image), ImageDraw (draw on
@@ -15,15 +15,17 @@ import docx  # Create my word document
 
 # CODE PROGRAM 1  (Working on the picture)
 image = Image.open('Taco_spencer_davis_unsplash_Original.jpg')  # I select the picture I'll work with
-sized_image = image.resize((800, 800))  # I resize the picture 800px * 800px
+size_max = (800, 800)  # Picture size that I want
+image.thumbnail(size_max)  # I use .thumbnail to reduce the picture to the size I want. I also keep the ratio
+image.save('800x800_taco_size.jpg')  # I save the picture
 
-image_draw = ImageDraw.Draw(sized_image)  # I'll draw on the resized picture, the 800px*800px so I create a new
-# variable for it
-font = ImageFont.truetype('DejaVuSans.ttf', 50)  # I'll use the typology DejaVuSans.ttf as font
-image_draw.text([100, 700], 'Random Taco Cookbook', fill='Fuchsia', font=font)  # I write 'Random Taco Cookbook'
-# starting 100px to the right and 700px down
+sized_picture = Image.open('800x800_taco_size.jpg')  # I select the picture I'll work with
+image_draw = ImageDraw.Draw(sized_picture)  # I'll draw on the resized picture (800x800)
+font = ImageFont.truetype('DejaVuSans.ttf', 45)  # I'll use the typology DejaVuSans.ttf as font + font size 45p
+image_draw.text([40, 700], 'Random Taco Cookbook', fill='Fuchsia', font=font)  # I write 'Random Taco Cookbook'
+# starting 40px to the right and 700px up to down
 
-sized_image.save('Image_Tacos_last_modified.jpg')  # I save this image with the name "Image_Tacos_last_modified.jpg"
+sized_picture.save('Image_Tacos_last_modified.jpg')  # I save this image with the name "Image_Tacos_last_modified.jpg"
 
 """Program 2: Make the Random Taco Recipe Book (40 points for code, 35 points for comments) Use requests to download 
 three random tacos from the random taco API. Save the data for each of three tacos in your program. Notice that each 
