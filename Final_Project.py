@@ -95,3 +95,6 @@ for recipe in list_of_recipes:  # For each recipe in my list of recipes
     # data in the recipe["shell"]["recipe"] in the word document'
 
 recipes_book.save('Random Recipes Book.docx')  # I save the word document as 'Random Recipes Book.docx'
+
+# TO DO
+# Try extra credits
