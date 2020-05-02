@@ -77,15 +77,21 @@ for recipe in list_of_recipes:  # For each recipe in my list of recipes
     # data in the recipe["base_layer"]["name"] as a subtitle 'Heading 1'
     recipes_book.add_paragraph(f'{recipe["base_layer"]["recipe"]}')  # I add a new paragraph and put the
     # data in the recipe["base_layer"]["recipe"] in the word document'
-    recipes_book.add_paragraph(f'Seasoning: {recipe["seasoning"]["name"]}', 'Heading 1') # I add a new paragraph and
+    recipes_book.add_paragraph(f'Seasoning: {recipe["seasoning"]["name"]}', 'Heading 1')  # I add a new paragraph and
     # put the data in the recipe["seasoning"]["name"] as a subtitle 'Heading 1'
-    recipes_book.add_paragraph(f'{recipe["seasoning"]["recipe"]}') # I add a new paragraph and put the
+    recipes_book.add_paragraph(f'{recipe["seasoning"]["recipe"]}')  # I add a new paragraph and put the
     # data in the recipe["seasoning"]["recipe"] in the word document'
-    recipes_book.add_paragraph(f'Condiment: {recipe["condiment"]["name"]}', 'Heading 1')
-    recipes_book.add_paragraph(f'{recipe["condiment"]["recipe"]}')
-    recipes_book.add_paragraph(f'Mixin: {recipe["mixin"]["name"]}', 'Heading 1')
-    recipes_book.add_paragraph(f'{recipe["mixin"]["recipe"]}')
-    recipes_book.add_paragraph(f'Wrap: {recipe["shell"]["name"]}', 'Heading 1')
-    recipes_book.add_paragraph(f'{recipe["shell"]["recipe"]}')
+    recipes_book.add_paragraph(f'Condiment: {recipe["condiment"]["name"]}', 'Heading 1')  # I add a new paragraph and
+    # put the data in the recipe["condiment"]["name"] as a subtitle 'Heading 1'
+    recipes_book.add_paragraph(f'{recipe["condiment"]["recipe"]}')  # I add a new paragraph and put the
+    # data in the recipe["condiment"]["recipe"] in the word document'
+    recipes_book.add_paragraph(f'Mixin: {recipe["mixin"]["name"]}', 'Heading 1')  # I add a new paragraph and
+    # put the data in the recipe["mixin"]["name"] as a subtitle 'Heading 1'
+    recipes_book.add_paragraph(f'{recipe["mixin"]["recipe"]}')  # I add a new paragraph and put the
+    # data in the recipe["mixin"]["recipe"] in the word document'
+    recipes_book.add_paragraph(f'Wrap: {recipe["shell"]["name"]}', 'Heading 1')  # I add a new paragraph and
+    # put the data in the recipe["shell"]["name"] as a subtitle 'Heading 1'
+    recipes_book.add_paragraph(f'{recipe["shell"]["recipe"]}')  # I add a new paragraph and put the
+    # data in the recipe["shell"]["recipe"] in the word document'
 
-recipes_book.save('Random Recipes Book.docx')
+recipes_book.save('Random Recipes Book.docx')  # I save the word document as 'Random Recipes Book.docx'
