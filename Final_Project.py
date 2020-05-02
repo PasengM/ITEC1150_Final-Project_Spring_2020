@@ -1,5 +1,10 @@
-# FINAL PROJECT
+################################## FINAL PROJECT #######################################################################
+"""Program 1 : 15 points for code, 10 points for comments
+   Program 2 : 40 points for code, 35 points for comments
+   Extra-credit : 15 points
+   Total : 100 points + 15 points ( as extra points ) """
 
+################################## WHAT TO DO? #########################################################################
 """Program 1: The Taco Image (15 points for code, 10 points for comments) Search Unsplash for a taco image (for
 example https://unsplash.com/photos/JiRSy0GfqPA) and save the image on your computer.
 
@@ -7,13 +12,16 @@ The downloaded image is very large. Use pillow to resize the image to a smaller 
 or tall (make sure you preserve the aspect ratio). Write the text "Random Taco Cookbook" on the image. Save the
 modified image to a new file. """
 
+################################## LIBRARIES ###########################################################################
 # Imported libraries
 from PIL import Image, ImageDraw, ImageFont  # From the Pillow library import Image (add image), ImageDraw (draw on
 # image) and ImageFont (Write on it)
 import requests  # Request = get json data from API servers
 import docx  # Create my word document
 
-# CODE PROGRAM 1  (Working on the picture)
+
+################################# CODE PROGRAM 1: WORKING ON THE PICTURE ###############################################
+# CODE PROGRAM 1
 image = Image.open('Taco_spencer_davis_unsplash_Original.jpg')  # I select the picture I'll work with
 size_max = (800, 800)  # Picture size that I want
 image.thumbnail(size_max)  # I use .thumbnail to reduce the picture to the size I want. I also keep the ratio
@@ -27,6 +35,8 @@ image_draw.text([40, 700], 'Random Taco Cookbook', fill='Fuchsia', font=font)  #
 
 sized_picture.save('Image_Tacos_last_modified.jpg')  # I save this image with the name "Image_Tacos_last_modified.jpg"
 
+
+################################## WHAT TO DO? #########################################################################
 """Program 2: Make the Random Taco Recipe Book (40 points for code, 35 points for comments) Use requests to download 
 three random tacos from the random taco API. Save the data for each of three tacos in your program. Notice that each 
 recipe is divided into five sections for base_layer, seasoning, mixin, condiment, and shell. Use Python to create a 
@@ -39,8 +49,11 @@ suggested style. After the first recipe, add a page break. To add another page, 
 break" Repeat to write all of the next recipe and a page break. Repeat to write all the third recipe. Save your word 
 document. """
 
+
+################################# CODE PROGRAM 2: ASSEMBLING THE BOOK RECIPES ##########################################
+
+#######################     """Everything is on the first page """ #####################################################
 # CODE PROGRAM 2
-##################      """Everything is on the first page """ #####################
 
 recipe1 = requests.get('https://taco-1150.herokuapp.com/random/?full_taco=true').json()  # Get my first recipe from
 # the json file
@@ -65,7 +78,7 @@ recipes_book.add_paragraph('Tacos from: http://taco-randomizer.herokuapp.com/ran
 recipes_book.add_paragraph('Code by: Paseng Moua', style='List Bullet')  # New paragraph with text "Code by: ..." with
 # style bullet list
 
-##################      """Everything is on the second,third, forth.... page """ #####################
+####################### """Everything is on the second,third, forth.... page """ #######################################
 
 list_of_recipes = [recipe1, recipe2, recipe3]  # I create a list and I put my recipes in.
 
@@ -98,5 +111,5 @@ for recipe in list_of_recipes:  # For each recipe in my list of recipes
 
 recipes_book.save('Random Recipes Book.docx')  # I save the word document as 'Random Recipes Book.docx'
 
-# TO DO
-# Try extra credits
+##################################  TODO_LIST   ########################################################################
+# Try extra credits part
