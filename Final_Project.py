@@ -55,13 +55,6 @@ document. """
 #######################     """Everything is on the first page """ #####################################################
 # CODE PROGRAM 2
 
-recipe1 = requests.get('https://taco-1150.herokuapp.com/random/?full_taco=true').json()  # Get my first recipe from
-# the json file
-recipe2 = requests.get('https://taco-1150.herokuapp.com/random/?full_taco=true').json()  # Get my second recipe from
-# the json file
-recipe3 = requests.get('https://taco-1150.herokuapp.com/random/?full_taco=true').json()  # Get my third recipe from
-# the json file
-
 recipes_book = docx.Document()  # Create a new word document
 recipes_book.add_paragraph('Random Taco Cookbook', 'Title')  # I add a new paragraph in this new document with
 # 'Random Taco Cookbook' as header text and with title style
@@ -80,9 +73,10 @@ recipes_book.add_paragraph('Code by: Paseng Moua', style='List Bullet')  # New p
 
 ####################### """Everything is on the second,third, forth.... page """ #######################################
 
-list_of_recipes = [recipe1, recipe2, recipe3]  # I create a list and I put my recipes in.
-
-for recipe in list_of_recipes:  # For each recipe in my list of recipes
+for item in range(3):  # for each item = it does it 3 times
+    requests.get('https://taco-1150.herokuapp.com/random/?full_taco=true').json()  # I get the data from the json file
+    recipe = requests.get('https://taco-1150.herokuapp.com/random/?full_taco=true').json()  # I store the data in a
+    # variable "recipe"
     recipes_book.add_page_break()  # I add a new page
     recipes_book.add_paragraph(
         f'{recipe["base_layer"]["name"]} with {recipe["seasoning"]["name"]}, {recipe["condiment"]["name"]} and {recipe["mixin"]["name"]} in {recipe["shell"]["name"]}',
@@ -110,6 +104,7 @@ for recipe in list_of_recipes:  # For each recipe in my list of recipes
     # data in the recipe["shell"]["recipe"] in the word document'
 
 recipes_book.save('Random Recipes Book.docx')  # I save the word document as 'Random Recipes Book.docx'
+
 
 ##################################  TODO_LIST   ########################################################################
 # Try extra credits part
